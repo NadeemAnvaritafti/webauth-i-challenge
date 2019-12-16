@@ -6,7 +6,8 @@ const Users = require("../users/users-model");
 
 
 router.post('/register', (req, res) => {
-
+    const userData = req.body;
+    
 });
 
 
