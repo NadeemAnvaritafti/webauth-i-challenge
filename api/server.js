@@ -6,6 +6,7 @@ const KnexSessionStore = require('connect-session-knex')(sessions);
 
 const authRouter = require('../auth/auth-router');
 const usersRouter = require('../users/users-router');
+const restrictedRouter = require('../restricted/restricted-router');
 
 const knex = require('../data/db-config');
 
@@ -43,6 +44,7 @@ server.use(sessions(sessionConfig));
 
 server.use('/api/auth', authRouter);
 server.use('/api/users', usersRouter);
+server.use('/api/restricted', restrictedRouter);
 
 
 module.exports = server;
