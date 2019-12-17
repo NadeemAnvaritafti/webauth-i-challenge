@@ -40,6 +40,19 @@ router.post('/login', validate, (req, res) => {
 });
 
 
+router.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(error => {
+            if (error) {
+                res.status(500).json({ message: 'there was an error logging out' })
+            } else {
+                res.status(200).json({ message: 'Successfully logged out!' })
+            }
+        });
+    } else {
+        res.status(200).end();
+    }
+});
 
 
 // ----------------------- CUSTOM MIDDLEWARE ------------------------ //
